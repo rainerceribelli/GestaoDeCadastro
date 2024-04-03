@@ -41,7 +41,8 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
                                            select new PessoaDTO()
                                                  {
                                                      Id = pessoa.Id,
-                                                     Tipo = pessoa.Tipo == (int)TipoCadastroPessoaEnum.Fisica ? "Física" :
+                                                     Tipo = pessoa.Tipo,
+                                                     TipoCadastro = pessoa.Tipo == (int)TipoCadastroPessoaEnum.Fisica ? "Física" :
                                                             pessoa.Tipo == (int)TipoCadastroPessoaEnum.Juridica ? "Jurídica"
                                                             : "Erro",
                                                      Nome = pessoa.Nome,
@@ -60,6 +61,23 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
             try
             {
                 List<PessoaDTO> Pessoas = await GetQueryPessoa().ToListAsync();
+
+                return Pessoas;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<List<PessoaDTO>> GetListPessoasByTipo(int _Tipo)
+        {
+            try
+            {
+                if (_Tipo != (int) TipoCadastroPessoaEnum.Fisica && _Tipo != (int)TipoCadastroPessoaEnum.Juridica)
+                    throw new Exception("Informe um tipo de cadastro valido!");
+
+                List<PessoaDTO> Pessoas = await GetQueryPessoa().Where(x => x.Tipo == _Tipo).ToListAsync();
 
                 return Pessoas;
             }

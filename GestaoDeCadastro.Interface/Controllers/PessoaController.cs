@@ -30,6 +30,21 @@ namespace GestaoDeCadastro.Interface.Controllers
             }
         }
 
+        [HttpGet("GetListPessoasByTipo")]
+        public async Task<ActionResult<List<PessoaDTO>>> GetListPessoasByTipo(int Tipo)
+        {
+            try
+            {
+                var Pessoas = await _service.GetListPessoasByTipo(Tipo);
+
+                return Ok(Pessoas);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         [HttpPost("CreatePessoa")]
         public async Task<ActionResult> CreatePessoa(CreatePessoaDTO CreatePessoa)
         {
