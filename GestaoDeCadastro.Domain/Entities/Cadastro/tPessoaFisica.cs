@@ -17,7 +17,7 @@ namespace GestaoDeCadastro.Domain.Entities.Cadastro
         [ForeignKey("Id")]
         public int IdPessoa { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Informar o CPF da pessoa!")]
         public string CPF { get; set; }
     }
 }

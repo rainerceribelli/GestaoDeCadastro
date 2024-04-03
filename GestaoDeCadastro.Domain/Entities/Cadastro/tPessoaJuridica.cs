@@ -16,10 +16,10 @@ namespace GestaoDeCadastro.Domain.Entities.Cadastro
         [Required]
         public int IdPessoa { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Informar o CNPJ!")]
         public string CNPJ { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Informar Razão Social!")]
         public string RazaoSocial { get; set; }
     }
 }

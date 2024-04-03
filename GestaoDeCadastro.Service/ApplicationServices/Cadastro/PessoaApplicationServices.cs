@@ -131,7 +131,7 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
                     CPF = NovaPessoa.CPF,
                 };
 
-                PessoaFisica.Add(await _pessoaFisicaApplicationServices.CreatePessoaFisica(CreatePessoaFisica));
+                PessoaFisica.Add(await _pessoaFisicaApplicationServices.CreatePessoaFisica(CreatePessoaFisica, false));
 
                 CreatePessoa.PessoaFisica = PessoaFisica;
             }

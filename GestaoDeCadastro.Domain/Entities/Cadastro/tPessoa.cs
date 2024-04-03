@@ -19,10 +19,8 @@ namespace GestaoDeCadastro.Domain.Entities.Cadastro
         [Required(ErrorMessage = "Informar o nome da pessoa!")]
         public string Nome { get; set; }
 
-        [Required]
         public string Endereco { get; set; }
 
-        [Required]
         public string Telefone { get; set; }
 
         public bool BitAtivo { get; set; }

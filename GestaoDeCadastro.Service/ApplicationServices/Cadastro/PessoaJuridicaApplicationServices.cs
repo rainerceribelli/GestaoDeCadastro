@@ -1,6 +1,7 @@
 ﻿using GestaoDeCadastro.Crosscutting.DTO.Cadastro;
 using GestaoDeCadastro.Domain.Entities.Cadastro;
 using GestaoDeCadastro.Infraestructure.Persistance.UnitOfWork.Cadastro;
+using GestaoDeCadastro.Service.ApplicationServices.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
 {
-    public class PessoaJuridicaApplicationServices
+    public class PessoaJuridicaApplicationServices : BaseApplicationServices
     {
         PessoaJuridicaUnitOfWork _uow;
 
@@ -29,7 +30,7 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
                     RazaoSocial = _CreatePessoaJuridica.RazaoSocial,
                 };
 
-                //ValidateObj(ContaExtrato);
+                ValidateObj(CreatePessoaJuridica);
                 await _uow.PessoaJuridicaRepository.AddAsync(CreatePessoaJuridica);
 
                 if (_Comit)

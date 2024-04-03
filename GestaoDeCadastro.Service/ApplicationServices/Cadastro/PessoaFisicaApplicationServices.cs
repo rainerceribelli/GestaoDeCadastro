@@ -1,6 +1,7 @@
 ﻿using GestaoDeCadastro.Crosscutting.DTO.Cadastro;
 using GestaoDeCadastro.Domain.Entities.Cadastro;
 using GestaoDeCadastro.Infraestructure.Persistance.UnitOfWork.Cadastro;
+using GestaoDeCadastro.Service.ApplicationServices.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
 {
-    public class PessoaFisicaApplicationServices
+    public class PessoaFisicaApplicationServices : BaseApplicationServices
     {
         private PessoaFisicaUnitOfWork _uow;
 
@@ -28,7 +29,7 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
                     CPF = _CreatePessoaFisica.CPF,
                 };
 
-                //ValidateObj(ContaExtrato);
+                ValidateObj(CreatePessoaFisica);
                 await _uow.PessoaFisicaRepository.AddAsync(CreatePessoaFisica);
 
                 if(_Comit)
