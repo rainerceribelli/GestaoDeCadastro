@@ -151,7 +151,7 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
             try
             {
                 if (_NovaPessoa.Tipo != 1 && _NovaPessoa.Tipo != 2)
-                    throw new Exception("Selecione um tipo de registro valido!");
+                    throw new Exception("Selecione um tipo de cadastro valido!");
 
                 if (_NovaPessoa.Nome == null)
                     throw new Exception("Nome deve ser informado!");
