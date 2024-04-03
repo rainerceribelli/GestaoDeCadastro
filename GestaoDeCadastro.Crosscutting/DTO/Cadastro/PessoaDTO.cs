@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public int Tipo { get; set; }
 
-        public string TipoCadastro { get; set; }
+        public string DescTipoCadastro { get; set; }
 
         public string Nome { get; set; }
 

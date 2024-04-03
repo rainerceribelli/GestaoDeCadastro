@@ -17,5 +17,7 @@ namespace GestaoDeCadastro.Infraestructure.Model
         }
 
         public DbSet<tPessoa> tPessoa { get; set; }
+        public DbSet<tPessoaFisica> tPessoaFisica { get; set; }
+        public DbSet<tPessoaJuridica> tPessoaJuridica { get; set; }
     }
 }

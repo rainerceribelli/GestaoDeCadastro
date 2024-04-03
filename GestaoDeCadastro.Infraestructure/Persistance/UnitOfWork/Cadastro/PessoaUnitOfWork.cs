@@ -14,7 +14,6 @@ namespace GestaoDeCadastro.Infraestructure.Persistance.UnitOfWork.Cadastro
         public PessoaUnitOfWork(GestaoDeCadastroModel context, IServiceProvider serviceProvider)
             : base(context, serviceProvider)
         {
-
         }
     }
 }

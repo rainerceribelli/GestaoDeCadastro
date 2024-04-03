@@ -37,7 +37,7 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
                                            {
                                                Id = pessoa.Id,
                                                Tipo = pessoa.Tipo,
-                                               TipoCadastro = pessoa.Tipo == (int)TipoCadastroPessoaEnum.Fisica ? "Física" :
+                                               DescTipoCadastro = pessoa.Tipo == (int)TipoCadastroPessoaEnum.Fisica ? "Física" :
                                                             pessoa.Tipo == (int)TipoCadastroPessoaEnum.Juridica ? "Jurídica"
                                                             : "Erro",
                                                Nome = pessoa.Nome,
