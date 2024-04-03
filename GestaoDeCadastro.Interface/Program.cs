@@ -22,13 +22,13 @@ namespace GestaoDeCadastro.Interface
     builder.Services.AddScoped<GestaoDeCadastroModel>(); // Assuming IGestaoDeCadastroModel is the interface
 
     builder.Services.AddControllers();
-    builder.Services.AddScoped<CadastroUnitOfWork>();
+    builder.Services.AddScoped<PessoaUnitOfWork>();
     builder.Services.AddScoped<PessoaJuridicaUnitOfWork>();
     builder.Services.AddScoped<PessoaFisicaUnitOfWork>();
     builder.Services.AddScoped<PessoaRepository>();
     builder.Services.AddScoped<PessoaFisicaRepository>();
     builder.Services.AddScoped<PessoaJuridicaRepository>();
-    builder.Services.AddScoped<CadastroApplicationServices>();
+    builder.Services.AddScoped<PessoaApplicationServices>();
     builder.Services.AddScoped<PessoaFisicaApplicationServices>();
     builder.Services.AddScoped<PessoaJuridicaApplicationServices>();
 

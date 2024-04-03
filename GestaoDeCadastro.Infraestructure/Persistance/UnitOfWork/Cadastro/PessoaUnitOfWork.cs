@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace GestaoDeCadastro.Infraestructure.Persistance.UnitOfWork.Cadastro
 {
-    public class CadastroUnitOfWork : GenericUnitOfWork
+    public class PessoaUnitOfWork : GenericUnitOfWork
     {
         public PessoaRepository PessoaRepository => _serviceProvider.GetService<PessoaRepository>();
         public PessoaFisicaRepository PessoaFisicaRepository => _serviceProvider.GetService<PessoaFisicaRepository>();
         public PessoaJuridicaRepository PessoaJuridicaRepository => _serviceProvider.GetService<PessoaJuridicaRepository>();
 
-        public CadastroUnitOfWork(GestaoDeCadastroModel context, IServiceProvider serviceProvider) 
+        public PessoaUnitOfWork(GestaoDeCadastroModel context, IServiceProvider serviceProvider) 
             : base(context, serviceProvider)
         {
             

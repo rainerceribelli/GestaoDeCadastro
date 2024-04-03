@@ -6,11 +6,11 @@ namespace GestaoDeCadastro.Interface.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CadastroController : ControllerBase
+    public class PessoaController : ControllerBase
     {
-        private readonly CadastroApplicationServices _service;
+        private readonly PessoaApplicationServices _service;
 
-        public CadastroController(CadastroApplicationServices service)
+        public PessoaController(PessoaApplicationServices service)
         {
             _service = service;
         }

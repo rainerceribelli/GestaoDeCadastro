@@ -8,16 +8,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static GestaoDeCadastro.Crosscutting.Enum.Cadastro.TipoCadastroPessoa;
 
 namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
 {
-    public class CadastroApplicationServices : BaseApplicationServices
+    public class PessoaApplicationServices : BaseApplicationServices
     {
-        private CadastroUnitOfWork _uow;
+        private PessoaUnitOfWork _uow;
         private PessoaFisicaApplicationServices _pessoaFisicaApplicationServices;
         private PessoaJuridicaApplicationServices _pessoaJuridicaApplicationServices;
 
-        public CadastroApplicationServices(CadastroUnitOfWork uow, 
+        public PessoaApplicationServices(PessoaUnitOfWork uow, 
             PessoaFisicaApplicationServices pessoaFisicaApplicationServices, 
             PessoaJuridicaApplicationServices pessoaJuridicaApplicationServices)
         {
@@ -40,7 +41,9 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
                                            select new PessoaDTO()
                                                  {
                                                      Id = pessoa.Id,
-                                                     Tipo = pessoa.Tipo,
+                                                     Tipo = pessoa.Tipo == (int)TipoCadastroPessoaEnum.Fisica ? "Física" :
+                                                            pessoa.Tipo == (int)TipoCadastroPessoaEnum.Juridica ? "Jurídica"
+                                                            : "Erro",
                                                      Nome = pessoa.Nome,
                                                      Endereco = pessoa.Endereco,
                                                      Telefone = pessoa.Telefone,
@@ -81,10 +84,10 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
                     BitAtivo = true
                 };
 
-                if (NovaPessoa.Tipo == 1)
+                if (NovaPessoa.Tipo == (int)TipoCadastroPessoaEnum.Fisica)
                     await InsereDadosPessoaFisica(CreatePessoa, NovaPessoa);
 
-                if (NovaPessoa.Tipo == 2)
+                if (NovaPessoa.Tipo == (int)TipoCadastroPessoaEnum.Juridica)
                     await InsereDadosPessoaJuridica(CreatePessoa, NovaPessoa);
 
                 ValidateObj(CreatePessoa);
