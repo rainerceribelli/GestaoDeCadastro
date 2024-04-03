@@ -10,11 +10,11 @@
 
         public string Telefone { get; set; }
 
-        public string CPF { get; set; }
+        public string? CPF { get; set; }
 
-        public string CNPJ { get; set; }
+        public string? CNPJ { get; set; }
 
-        public string RazaoSocial { get; set; }
+        public string? RazaoSocial { get; set; }
 
         public bool BitAtivo { get; set; }
     }
