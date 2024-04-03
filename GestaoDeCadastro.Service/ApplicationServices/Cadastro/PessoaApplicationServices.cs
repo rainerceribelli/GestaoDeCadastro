@@ -3,11 +3,6 @@ using GestaoDeCadastro.Domain.Entities.Cadastro;
 using GestaoDeCadastro.Infraestructure.Persistance.UnitOfWork.Cadastro;
 using GestaoDeCadastro.Service.ApplicationServices.Base;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static GestaoDeCadastro.Crosscutting.Enum.Cadastro.TipoCadastroPessoa;
 
 namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
@@ -18,8 +13,8 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
         private PessoaFisicaApplicationServices _pessoaFisicaApplicationServices;
         private PessoaJuridicaApplicationServices _pessoaJuridicaApplicationServices;
 
-        public PessoaApplicationServices(PessoaUnitOfWork uow, 
-            PessoaFisicaApplicationServices pessoaFisicaApplicationServices, 
+        public PessoaApplicationServices(PessoaUnitOfWork uow,
+            PessoaFisicaApplicationServices pessoaFisicaApplicationServices,
             PessoaJuridicaApplicationServices pessoaJuridicaApplicationServices)
         {
             _uow = uow;
@@ -39,19 +34,19 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
                                            join pessoaJuridica in PessoaJuridica on pessoa.Id equals pessoaJuridica.IdPessoa into pessoaJuridicaJoin
                                            from pessoaJuridicaLeft in pessoaJuridicaJoin.DefaultIfEmpty() //left join
                                            select new PessoaDTO()
-                                                 {
-                                                     Id = pessoa.Id,
-                                                     Tipo = pessoa.Tipo,
-                                                     TipoCadastro = pessoa.Tipo == (int)TipoCadastroPessoaEnum.Fisica ? "Física" :
+                                           {
+                                               Id = pessoa.Id,
+                                               Tipo = pessoa.Tipo,
+                                               TipoCadastro = pessoa.Tipo == (int)TipoCadastroPessoaEnum.Fisica ? "Física" :
                                                             pessoa.Tipo == (int)TipoCadastroPessoaEnum.Juridica ? "Jurídica"
                                                             : "Erro",
-                                                     Nome = pessoa.Nome,
-                                                     Endereco = pessoa.Endereco,
-                                                     Telefone = pessoa.Telefone,
-                                                     BitAtivo = pessoa.BitAtivo,
-                                                     CPF = pessoaFisicaLeft.CPF,
-                                                     CNPJ = pessoaJuridicaLeft.CNPJ,
-                                                     RazaoSocial = pessoaJuridicaLeft.RazaoSocial
+                                               Nome = pessoa.Nome,
+                                               Endereco = pessoa.Endereco,
+                                               Telefone = pessoa.Telefone,
+                                               BitAtivo = pessoa.BitAtivo,
+                                               CPF = pessoaFisicaLeft.CPF,
+                                               CNPJ = pessoaJuridicaLeft.CNPJ,
+                                               RazaoSocial = pessoaJuridicaLeft.RazaoSocial
                                            });
             return query;
         }
@@ -74,7 +69,7 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
         {
             try
             {
-                if (_Tipo != (int) TipoCadastroPessoaEnum.Fisica && _Tipo != (int)TipoCadastroPessoaEnum.Juridica)
+                if (_Tipo != (int)TipoCadastroPessoaEnum.Fisica && _Tipo != (int)TipoCadastroPessoaEnum.Juridica)
                     throw new Exception("Informe um tipo de cadastro valido!");
 
                 List<PessoaDTO> Pessoas = await GetQueryPessoa().Where(x => x.Tipo == _Tipo).ToListAsync();

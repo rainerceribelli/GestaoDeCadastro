@@ -1,11 +1,6 @@
 ﻿using GestaoDeCadastro.Domain.Entities.Cadastro;
 using GestaoDeCadastro.Infraestructure.Persistance.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestaoDeCadastro.Infraestructure.Model
 {
@@ -16,7 +11,7 @@ namespace GestaoDeCadastro.Infraestructure.Model
             base.OnConfiguring(optionsBuilder);
         }
 
-        public GestaoDeCadastroModel(DbContextOptions options) 
+        public GestaoDeCadastroModel(DbContextOptions options)
             : base(options)
         {
         }

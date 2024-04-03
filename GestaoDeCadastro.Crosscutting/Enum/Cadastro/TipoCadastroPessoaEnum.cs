@@ -1,10 +1,4 @@
 ﻿using GestaoDeCadastro.Crosscutting.Attributes;
-using GestaoDeCadastro.Crosscutting.DTO.Cadastro;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestaoDeCadastro.Crosscutting.Enum.Cadastro
 {

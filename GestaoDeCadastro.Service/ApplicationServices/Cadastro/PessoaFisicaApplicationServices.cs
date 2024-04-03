@@ -2,11 +2,6 @@
 using GestaoDeCadastro.Domain.Entities.Cadastro;
 using GestaoDeCadastro.Infraestructure.Persistance.UnitOfWork.Cadastro;
 using GestaoDeCadastro.Service.ApplicationServices.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
 {
@@ -32,7 +27,7 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
                 ValidateObj(CreatePessoaFisica);
                 await _uow.PessoaFisicaRepository.AddAsync(CreatePessoaFisica);
 
-                if(_Comit)
+                if (_Comit)
                     await _uow.CommitAsync();
 
                 return CreatePessoaFisica;

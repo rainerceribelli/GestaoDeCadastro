@@ -2,11 +2,6 @@
 using GestaoDeCadastro.Domain.Entities.Cadastro;
 using GestaoDeCadastro.Infraestructure.Persistance.UnitOfWork.Cadastro;
 using GestaoDeCadastro.Service.ApplicationServices.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
 {
