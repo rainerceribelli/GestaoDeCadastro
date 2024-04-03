@@ -163,7 +163,7 @@ namespace GestaoDeCadastro.Service.ApplicationServices.Cadastro
         {
             try
             {
-                if (_NovaPessoa.Tipo != 1 && _NovaPessoa.Tipo != 2)
+                if (_NovaPessoa.Tipo != (int)TipoCadastroPessoaEnum.Fisica && _NovaPessoa.Tipo != (int)TipoCadastroPessoaEnum.Juridica)
                     throw new Exception("Selecione um tipo de cadastro valido!");
 
                 if (_NovaPessoa.Nome == null)
