@@ -63,7 +63,7 @@ dotnet run --project GestaoDeCadastro.Interface
 ```
 
 4. **Acesse a documentação**
-- Swagger UI: `https://localhost:5001` ou `http://localhost:5000`
+- Swagger UI: `http://localhost:5000` ou `https://localhost:5001`
 
 ## 📊 Funcionalidades
 
